@@ -1,0 +1,69 @@
+extends layout
+
+block content
+  h1= title
+
+  div(class='row')
+    div(class='col-sm-3')
+      form(action='screenshot')
+        p
+          h4 Url
+          input(name='url' id='id' type='text' placeholder='Type your url' class='form-control' value=url)
+
+        p
+          h4 Screen width
+
+          span(class='radio')
+            input(name='screenwidth' type='radio' value='320' checked=screenWidth === 320)
+            span 320
+
+          br
+
+          span(class='radio')
+            input(name='screenwidth' type='radio' value='480' checked=screenWidth === 480)
+            span 480
+
+          br
+
+          span(class='radio')
+            input(name='screenwidth' type='radio' value='640' checked=screenWidth === 640)
+            span 640
+
+          br
+
+          span(class='radio')
+            input(name='screenwidth' type='radio' value='768' checked=screenWidth === 768)
+            span 768
+
+          br
+
+          span(class='radio')
+            input(name='screenwidth' type='radio' value='960' checked=screenWidth === 960)
+            span 960
+
+          br
+
+          span(class='radio')
+            input(name='screenwidth' type='radio' value='1024' checked=screenWidth === 1024)
+            span 1024
+
+          br
+
+          span(class='radio')
+            input(name='screenwidth' type='radio' value='1280' checked=screenWidth === 1280)
+            span 1280
+
+          br
+
+          span(class='radio')
+            input(name='screenwidth' type='radio' value='1440' checked=screenWidth === 1440)
+            span 1440
+
+        button(class='btn btn-outline-primary') Make a screenshot
+
+    div(class='col-sm-9')
+      h2 Screenshot
+
+      div(style='display: flex; justify-content: center;')
+        if screenshot
+          img(src=screenshot style='border: 1px solid #333;')
