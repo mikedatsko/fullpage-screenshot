@@ -1,0 +1,23 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: fullpage_screenshot
+    working_dir: /app
+    command: npm start
+    ports:
+      - '9003:80'
+    links:
+      - 'browserless:browser'
+    volumes:
+      - ./bin:/app/bin
+      - ./public:/app/public
+      - ./routes:/app/routes
+      - ./views:/app/views
+      - ./screenshots:/app/screenshots
+
+  browserless:
+    image: browserless/chrome:latest
+    container_name: fullpage_screenshot_browserless
+    ports:
+      - '3111:3000'

@@ -2,17 +2,29 @@ const express = require('express');
 const router = express.Router();
 const puppeteer = require('puppeteer');
 
+function getBrowser(width, height, isMobile) {
+  return puppeteer.connect({
+    browserWSEndpoint: 'ws://browser:3000',
+    defaultViewport: {
+      width: width,
+      height: height,
+      isMobile: !!isMobile
+    }
+  });
+}
+
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
   const url = req.query.url;
   const screenWidth = parseInt(req.query.screenwidth, 10);
+  const screenHeight = screenWidth;
   console.log('url', url, 'screenwidth', screenWidth);
 
   try {
-    const browser = await puppeteer.launch();
+    const browser = await getBrowser(screenWidth, screenHeight, false);
     const page = await browser.newPage();
     await page.goto(url);
-    await page.setViewport({width: screenWidth, height: screenWidth});
+    await page.setViewport({width: screenWidth, height: screenHeight});
 
     await page.goto(url, {waitUntil: 'networkidle0', timeout: 120000});
 

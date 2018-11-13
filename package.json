@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start:local": "PORT=3000 nodemon ./bin/www"
+    "start:local": "DEBUG=app:* nodemon ./bin/www"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",
