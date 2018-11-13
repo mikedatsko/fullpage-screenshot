@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 
 function getBrowser(width, height, isMobile) {
   return puppeteer.connect({
-    browserWSEndpoint: 'ws://browser:3000',
+    browserWSEndpoint: 'ws://browser:3001',
     defaultViewport: {
       width: width,
       height: height,

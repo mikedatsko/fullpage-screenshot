@@ -20,4 +20,4 @@ services:
     image: browserless/chrome:latest
     container_name: fullpage_screenshot_browserless
     ports:
-      - '3111:3000'
+      - '3111:3001'
